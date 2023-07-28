@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "usepy-plugin-logger"
-version = "0.1.5"
+version = "0.1.6"
 description = "一个全局拦截日志并转为loguru日志的插件"
 authors = ["nowanti <believel.y@qq.com>"]
 readme = "README.md"
