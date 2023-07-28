@@ -10,12 +10,12 @@
 
 #### 安装
 
-> pip install 'usepy[logger]'
+> pip install usepy-plugin-logger
 
 #### 使用
 
 ```python
-from usepy import useLogger
+from usepy.plugin import useLogger
 
 useLogger()  # 使用默认配置
 
@@ -26,7 +26,7 @@ useLogger()  # 使用默认配置
 如果想要感受它带来的“魔法”，需要稍微配置一下。
 
 ```python
-from usepy import useLogger
+from usepy.plugin import useLogger
 
 useLogger(packages=["scrapy", "django", "usepy"])
 
@@ -41,7 +41,7 @@ useLogger(packages=["scrapy", "django", "usepy"])
 
 ```python
 from loguru import logger
-from usepy import useLogger, useLoggerHandlers
+from usepy.plugin import useLogger, useLoggerHandlers
 
 useLogger(
     handlers=[
