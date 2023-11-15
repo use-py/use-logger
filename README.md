@@ -14,6 +14,14 @@
 
 #### 使用
 
+- 直接使用
+```python
+from usepy_plugin_logger import useLogger
+
+useLogger()  # 使用默认配置
+```
+
+- 如果你是usepy用户
 ```python
 from usepy.plugin import useLogger
 
