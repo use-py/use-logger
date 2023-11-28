@@ -4,7 +4,7 @@
 - 日志拦截与输出的 集成&单独 方法
 """
 from datetime import tzinfo
-from typing import List, Tuple, Optional, Union, Dict
+from typing import Dict, List, Optional, Tuple, Union
 
 from loguru import logger
 
@@ -13,10 +13,10 @@ from .intercept import intercept_logger
 
 
 def init_logger(
-        handlers: Optional[List[Dict]] = None,
-        packages: Optional[Union[List[str], Tuple[str]]] = None,
-        tz: Optional[tzinfo] = None,
-        **kwargs
+    handlers: Optional[List[Dict]] = None,
+    packages: Optional[Union[List[str], Tuple[str]]] = None,
+    tz: Optional[tzinfo] = None,
+    **kwargs
 ):
     """
     一键配置 loguru ，所属程序本身的日志可直接 from loguru import logger ，即可正常处理
@@ -33,22 +33,26 @@ def init_logger(
             "The 'handlers' parameter should be a list (or None), not: '%s'"
             % type(handlers).__name__
         )
-    
+
     if packages is not None and not isinstance(packages, (tuple, list)):
         raise TypeError(
             "The 'packages' parameter should be a dict (or tuple or None), not: '%s'"
             % type(packages).__name__
         )
-    
+
     extra = kwargs.pop("extra", {})
     if not isinstance(extra, dict):
         raise TypeError(
             "The 'extra' parameter should be a dict (or None), not: '%s'"
             % type(extra).__name__
         )
-    
+
     if isinstance(packages, (tuple, list)):
         intercept_logger(packages, include_child=True)
-    
-    patcher = None if tz is None else lambda record: record.update(time=record["time"].astimezone(tz))
+
+    patcher = (
+        None
+        if tz is None
+        else lambda record: record.update(time=record["time"].astimezone(tz))
+    )
     logger.configure(handlers=handlers, extra=extra, patcher=patcher, **kwargs)

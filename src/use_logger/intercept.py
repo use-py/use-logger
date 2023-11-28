@@ -1,6 +1,6 @@
 import logging
 from types import FrameType
-from typing import Tuple, cast, Optional, List, Union
+from typing import List, Optional, Tuple, Union, cast
 
 from loguru import logger
 
@@ -27,7 +27,9 @@ class InterceptHandler(logging.Handler):
         )
 
 
-def intercept_logger(names: Optional[Union[List[str], Tuple[str]]] = None, include_child=False):
+def intercept_logger(
+    names: Optional[Union[List[str], Tuple[str]]] = None, include_child=False
+):
     """
     使用 loguru 拦截 指定的 logging 日志
 
@@ -54,7 +56,7 @@ def intercept_logger(names: Optional[Union[List[str], Tuple[str]]] = None, inclu
         if logging_logger.level == 0:  # logging 中 level 0 在 loguru 记录不到
             logging_logger.setLevel(5)  # 所以修改为 level=TRACE
         # 替换 handlers 为 loguru 的拦截类（排除子模块时为空）
-        if '.' in name and not include_child:
+        if "." in name and not include_child:
             logging_logger.handlers = []
         else:
             logging_logger.handlers = [InterceptHandler()]

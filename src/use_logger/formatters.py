@@ -29,10 +29,10 @@ class JsonFormatter(Formatter):
     """格式化日志到Json，并删除某些字段"""
 
     def __init__(
-            self,
-            extra_ignore_keys: Optional[List[str]] = EXTRA_IGNORE_FIELDS_DEFAULT,
-            with_timestamp: bool = True,
-            **kwargs
+        self,
+        extra_ignore_keys: Optional[List[str]] = EXTRA_IGNORE_FIELDS_DEFAULT,
+        with_timestamp: bool = True,
+        **kwargs
     ):
         """
         :param ignore_fields: 需要从 record[extra] 里忽略(排除)的字段

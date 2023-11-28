@@ -1,11 +1,10 @@
-from datetime import timezone, timedelta
+from datetime import timedelta, timezone
 
 from loguru import logger
 
-from usepy_plugin_logger import useLogger
+from use_logger import useLogger, useLoggerHandlers
 
 tz = timezone(timedelta(hours=-9))
-useLogger(tz=tz)
+useLogger(handlers=[useLoggerHandlers.logstash_handler()], tz=tz)
 
-logger.debug("Hello, world!")
-
+logger.info("Hello, world!")

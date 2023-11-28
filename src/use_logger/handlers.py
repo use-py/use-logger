@@ -3,8 +3,10 @@ import sys
 
 from .formatters import JsonFormatter
 
-DEFAULT_HANDLER_FORMAT = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | " \
-                         "<level>{level}</level> | <level>{message}</level>"
+DEFAULT_HANDLER_FORMAT = (
+    "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | "
+    "<level>{level}</level> | <level>{message}</level>"
+)
 LOGSTASH_HANDLER_FORMAT = "{message}"
 
 
@@ -19,11 +21,11 @@ class LogstashHandler(logging.StreamHandler):
 
 
 def logstash_handler(
-        level="INFO",
-        format=LOGSTASH_HANDLER_FORMAT,
-        filter=lambda record: "uvicorn" not in record["name"],
-        extra=None,
-        **kwargs
+    level="INFO",
+    format=LOGSTASH_HANDLER_FORMAT,
+    filter=lambda record: "uvicorn" not in record["name"],
+    extra=None,
+    **kwargs
 ) -> dict:
     if extra is None:
         extra = {}
