@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "use-logger"
-version = "0.1.8"
+version = "0.1.9"
 description = "一个全局拦截日志并转为loguru日志的插件"
 authors = ["nowanti <believel.y@qq.com>"]
 readme = "README.md"
@@ -22,6 +22,10 @@ isort = "*"
 pre-commit = "*"
 pre-commit-hooks = "*"
 
+
+
+[tool.poetry.group.dev.dependencies]
+usepy = "^0.2.8"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

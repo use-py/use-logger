@@ -10,7 +10,7 @@
 
 #### 安装
 
-> pip install usepy-plugin-logger
+> pip install use-logger
 
 #### 使用
 
@@ -23,6 +23,7 @@ useLogger()  # 使用默认配置
 ```
 
 - 如果你是usepy用户
+
 ```python
 from usepy.plugin import useLogger
 
@@ -65,4 +66,13 @@ logger.debug("test debug")
 
 ```
 
+##### Uvicorn/FastAPI
 
+使用 `uvicorn` 作为 `FastAPI` 的服务器，那么你可以使用 `useLogger` 来拦截 `uvicorn` 的日志。
+(如果使用的是 `gunicorn`， 那么只要指定 `class` 为 `uvicorn.workers.UvicornWorker` 即可)
+
+```python
+
+fr
+
+```
