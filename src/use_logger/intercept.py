@@ -63,7 +63,7 @@ def intercept_logger(
             # logger.debug(f"{name} hooked. level={logging_logger.level}")
 
 
-UVICORN_LOGGER_NAMES = ["uvicorn", "uvicorn.asgi", "uvicorn.access"]
+UVICORN_LOGGER_NAMES = ["uvicorn", "uvicorn.asgi", "uvicorn.access", "uvicorn.error"]
 
 
 def intercept_uvicorn_logger():
