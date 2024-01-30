@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "use-logger"
-version = "0.1.7"
+version = "0.1.8"
 description = "一个全局拦截日志并转为loguru日志的插件"
 authors = ["nowanti <believel.y@qq.com>"]
 readme = "README.md"
@@ -10,7 +10,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-loguru = "^0.6.0"
+loguru = "^0"
 
 
 [tool.poetry.group.test.dependencies]
